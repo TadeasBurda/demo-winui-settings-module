@@ -11,10 +11,16 @@
   mc:Ignorable="d">
   <!--
     NavigationView: Provides a consistent navigation experience.
+    BackRequested: Binds the back navigation request to the ViewModel's OnNavigationBackRequested method.
     Background: Sets the background color of the NavigationView.
+    IsBackEnabled: Binds the back button enabled state to the ViewModel's IsBackButtonEnabled property.
     IsPaneOpen: Indicates whether the navigation pane is open.
   -->
-  <NavigationView Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" IsPaneOpen="False">
+  <NavigationView
+    BackRequested="{x:Bind ViewModel.OnNavigationBackRequested}"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    IsBackEnabled="{x:Bind ViewModel.IsBackButtonEnabled, Mode=OneWay}"
+    IsPaneOpen="False">
     <!--
       NavigationView.Header: Placeholder for the header content of the NavigationView.
     -->

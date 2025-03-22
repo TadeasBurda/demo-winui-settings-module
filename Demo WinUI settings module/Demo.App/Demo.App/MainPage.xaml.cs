@@ -20,7 +20,7 @@ public sealed partial class MainPage : Page
     public MainPage()
     {
         InitializeComponent();
-
         DataContext ??= ViewModel;
+        Loaded += (_, __) => ViewModel.ContentFrame = _contentFrame;
     }
 }
