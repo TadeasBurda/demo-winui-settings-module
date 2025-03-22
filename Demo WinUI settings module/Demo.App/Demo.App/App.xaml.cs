@@ -43,6 +43,8 @@ public partial class App : Application
     private static ServiceProvider ConfigureServices()
     {
         var services = new ServiceCollection();
+        services.AddSingleton<MainViewModel>();
+
         return services.BuildServiceProvider();
     }
 }

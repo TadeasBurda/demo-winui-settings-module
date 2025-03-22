@@ -1,3 +1,4 @@
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.UI.Xaml.Controls;
 
 namespace Demo.App;
@@ -7,8 +8,13 @@ namespace Demo.App;
 /// </summary>
 public sealed partial class MainPage : Page
 {
+    internal MainViewModel ViewModel { get; } =
+        App.Current.Services.GetRequiredService<MainViewModel>();
+
     public MainPage()
     {
         InitializeComponent();
+
+        DataContext ??= ViewModel;
     }
 }
