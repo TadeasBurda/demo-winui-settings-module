@@ -1,4 +1,5 @@
-﻿using Microsoft.UI.Xaml;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 
 namespace Demo.App;
@@ -10,6 +11,10 @@ public partial class App : Application
 {
     private Window? _mainWindow;
     private Frame? _contentFrame;
+
+    internal static new App Current => (App)Application.Current;
+
+    internal ServiceProvider Services { get; } = ConfigureServices();
 
     /// <summary>
     /// Initializes the singleton application object.  This is the first line of authored code
@@ -31,5 +36,11 @@ public partial class App : Application
 
         _mainWindow = new MainWindow { Content = _contentFrame };
         _mainWindow.Activate();
+    }
+
+    private static ServiceProvider ConfigureServices()
+    {
+        var services = new ServiceCollection();
+        return services.BuildServiceProvider();
     }
 }
