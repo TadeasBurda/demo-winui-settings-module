@@ -1,5 +1,7 @@
 ﻿using System;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Messaging; // added manually - fix OnActivated method
+using Demo.UI.Navigation.Models;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Navigation;
 
@@ -16,7 +18,7 @@ internal enum NavigationTag
 /// <summary>
 /// ViewModel for the main page, handling navigation and back button state.
 /// </summary>
-internal partial class MainViewModel : ObservableObject
+internal partial class MainViewModel : ObservableRecipient
 {
     /// <summary>
     /// Gets or sets the content frame used for navigation.
@@ -28,6 +30,12 @@ internal partial class MainViewModel : ObservableObject
     /// </summary>
     [ObservableProperty]
     internal partial bool IsBackButtonEnabled { get; set; } = false;
+
+    /// <summary>
+    /// Gets or sets the type of the current page.
+    /// </summary>
+    [ObservableProperty]
+    internal partial Type CurrentPageType { get; set; }
 
     /// <summary>
     /// Handles the back navigation request.
@@ -58,6 +66,11 @@ internal partial class MainViewModel : ObservableObject
         {
             IsBackButtonEnabled = frame.CanGoBack;
         }
+
+        if (args.SourcePageType is Type currentPageType)
+        {
+            CurrentPageType = currentPageType;
+        }
     }
 
     /// <summary>
@@ -84,5 +97,18 @@ internal partial class MainViewModel : ObservableObject
                     throw new InvalidOperationException("Unknown tag");
             }
         }
+    }
+
+    /// <summary>
+    /// Registers the ViewModel to receive messages when activated.
+    /// </summary>
+    protected override void OnActivated()
+    {
+        base.OnActivated();
+
+        Messenger.Register<MainViewModel, NavigateToPageMessage>(
+            this,
+            (_, message) => ContentFrame?.Navigate(message.Page)
+        );
     }
 }

@@ -1,4 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 
 namespace Demo.App;
@@ -21,6 +22,17 @@ public sealed partial class MainPage : Page
     {
         InitializeComponent();
         DataContext ??= ViewModel;
-        Loaded += (_, __) => ViewModel.ContentFrame = _contentFrame;
+        Loaded += OnPageLoaded;
+    }
+
+    /// <summary>
+    /// Handles the Loaded event of the page.
+    /// </summary>
+    /// <param name="_">The sender of the event.</param>
+    /// <param name="__">The event arguments.</param>
+    private void OnPageLoaded(object _, RoutedEventArgs __)
+    {
+        ViewModel.IsActive = true;
+        ViewModel.ContentFrame = _contentFrame;
     }
 }

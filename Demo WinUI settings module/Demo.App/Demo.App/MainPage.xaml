@@ -6,6 +6,7 @@
   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
   xmlns:local="using:Demo.App"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:navigation="using:Demo.UI.Navigation.Views.UserControls"
   d:DataContext="{d:DesignInstance Type=local:MainViewModel}"
   Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
   mc:Ignorable="d">
@@ -26,7 +27,13 @@
     <!--
       NavigationView.Header: Placeholder for the header content of the NavigationView.
     -->
-    <NavigationView.Header />
+    <NavigationView.Header>
+      <!--
+        BreadcrumbHeader: Displays the breadcrumb navigation header.
+        CurrentPageType: Binds the current page type to the ViewModel's CurrentPageType property.
+      -->
+      <navigation:BreadcrumbHeader CurrentPageType="{x:Bind ViewModel.CurrentPageType, Mode=OneWay}" />
+    </NavigationView.Header>
     <!--
       Frame: A container for navigating between pages.
       x:Name: Sets the name of the Frame element.
