@@ -31,6 +31,8 @@ public partial class App : Application
     /// <param name="args">Details about the launch request and process.</param>
     protected override void OnLaunched(LaunchActivatedEventArgs args)
     {
+        base.OnLaunched(args);
+
         _contentFrame = new Frame();
         _contentFrame.Navigate(typeof(MainPage));
 
