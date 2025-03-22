@@ -1,4 +1,5 @@
 ﻿using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 
 namespace Demo.App;
 
@@ -7,6 +8,9 @@ namespace Demo.App;
 /// </summary>
 public partial class App : Application
 {
+    private Window? _mainWindow;
+    private Frame? _contentFrame;
+
     /// <summary>
     /// Initializes the singleton application object.  This is the first line of authored code
     /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -22,9 +26,10 @@ public partial class App : Application
     /// <param name="args">Details about the launch request and process.</param>
     protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
     {
-        m_window = new MainWindow();
-        m_window.Activate();
-    }
+        _contentFrame = new Frame();
+        _contentFrame.Navigate(typeof(MainPage));
 
-    private Window? m_window;
+        _mainWindow = new MainWindow { Content = _contentFrame };
+        _mainWindow.Activate();
+    }
 }
