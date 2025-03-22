@@ -1,5 +1,7 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System;
+using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Navigation;
 
 namespace Demo.App;
 
@@ -43,5 +45,44 @@ internal partial class MainViewModel : ObservableObject
         }
 
         IsBackButtonEnabled = ContentFrame?.CanGoBack == true;
+    }
+
+    /// <summary>
+    /// Updates the back button state when navigation occurs.
+    /// </summary>
+    /// <param name="sender">The sender of the event.</param>
+    /// <param name="args">The event arguments.</param>
+    internal void OnContentFrameNavigated(object sender, NavigationEventArgs args)
+    {
+        if (sender is Frame frame)
+        {
+            IsBackButtonEnabled = frame.CanGoBack;
+        }
+    }
+
+    /// <summary>
+    /// Handles the selection change in the NavigationView.
+    /// </summary>
+    /// <param name="sender">The sender of the event.</param>
+    /// <param name="args">The event arguments.</param>
+    internal void OnNavigationSelectionChanged(
+        NavigationView sender,
+        NavigationViewSelectionChangedEventArgs args
+    )
+    {
+        if (
+            sender.SelectedItem is NavigationViewItem selectedItem
+            && selectedItem.Tag is string tag
+        )
+        {
+            switch (tag)
+            {
+                case nameof(NavigationTag.Settings):
+                    ContentFrame?.Navigate(typeof(SettingsPage));
+                    break;
+                default:
+                    throw new InvalidOperationException("Unknown tag");
+            }
+        }
     }
 }

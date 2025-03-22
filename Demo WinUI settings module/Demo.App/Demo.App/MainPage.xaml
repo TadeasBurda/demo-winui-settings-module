@@ -15,12 +15,14 @@
     Background: Sets the background color of the NavigationView.
     IsBackEnabled: Binds the back button enabled state to the ViewModel's IsBackButtonEnabled property.
     IsPaneOpen: Indicates whether the navigation pane is open.
+    SelectionChanged: Binds the selection change event to the ViewModel's OnNavigationSelectionChanged method.
   -->
   <NavigationView
     BackRequested="{x:Bind ViewModel.OnNavigationBackRequested}"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     IsBackEnabled="{x:Bind ViewModel.IsBackButtonEnabled, Mode=OneWay}"
-    IsPaneOpen="False">
+    IsPaneOpen="False"
+    SelectionChanged="{x:Bind ViewModel.OnNavigationSelectionChanged}">
     <!--
       NavigationView.Header: Placeholder for the header content of the NavigationView.
     -->
@@ -28,7 +30,8 @@
     <!--
       Frame: A container for navigating between pages.
       x:Name: Sets the name of the Frame element.
+      Navigated: Binds the navigation event to the ViewModel's OnContentFrameNavigated method.
     -->
-    <Frame x:Name="_contentFrame" />
+    <Frame x:Name="_contentFrame" Navigated="{x:Bind ViewModel.OnContentFrameNavigated}" />
   </NavigationView>
 </Page>
