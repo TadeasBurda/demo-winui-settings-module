@@ -12,12 +12,18 @@ public partial class App : Application
     private Window? _mainWindow;
     private Frame? _contentFrame;
 
+    /// <summary>
+    /// Gets the current application instance.
+    /// </summary>
     internal static new App Current => (App)Application.Current;
 
+    /// <summary>
+    /// Gets the service provider for dependency injection.
+    /// </summary>
     internal ServiceProvider Services { get; } = ConfigureServices();
 
     /// <summary>
-    /// Initializes the singleton application object.  This is the first line of authored code
+    /// Initializes the singleton application object. This is the first line of authored code
     /// executed, and as such is the logical equivalent of main() or WinMain().
     /// </summary>
     public App()
@@ -40,6 +46,10 @@ public partial class App : Application
         _mainWindow.Activate();
     }
 
+    /// <summary>
+    /// Configures the services for dependency injection.
+    /// </summary>
+    /// <returns>A service provider with the configured services.</returns>
     private static ServiceProvider ConfigureServices()
     {
         var services = new ServiceCollection();
