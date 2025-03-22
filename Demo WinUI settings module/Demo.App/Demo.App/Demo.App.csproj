@@ -29,6 +29,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Demo.UI.Navigation\Demo.UI.Navigation.csproj" />
+    <ProjectReference Include="..\..\Demo.UI.Settings\Demo.UI.Settings.csproj" />
   </ItemGroup>
 
   <ItemGroup>

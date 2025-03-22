@@ -40,6 +40,7 @@ public partial class App : Application
         base.OnLaunched(args);
 
         UI.Navigation.DependencyConfiguration.Services = Services;
+        UI.Settings.DependencyConfiguration.Services = Services;
 
         _contentFrame = new Frame();
         _contentFrame.Navigate(typeof(MainPage));
@@ -57,6 +58,7 @@ public partial class App : Application
         var services = new ServiceCollection();
 
         UI.Navigation.DependencyConfiguration.Configure(services);
+        UI.Settings.DependencyConfiguration.Configure(services);
 
         services.AddSingleton<MainViewModel>();
 

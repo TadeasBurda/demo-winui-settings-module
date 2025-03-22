@@ -6,6 +6,7 @@
   </Configurations>
   <Folder Name="/UI/" Id="02ea681e-c7d8-13c7-8484-4ac65e1b71e8">
     <Project Path="Demo.UI.Navigation/Demo.UI.Navigation.csproj" Id="be0efddc-6e09-4477-aed1-b4102df2287e" />
+    <Project Path="Demo.UI.Settings/Demo.UI.Settings.csproj" Id="19ff10a6-8e53-43a1-97e3-a036135b880a" />
   </Folder>
   <Project Path="Demo.App/Demo.App (Package)/Demo.App (Package).wapproj" Type="c7167f0d-bc9f-4e6e-afe1-012c56b48db5" Id="eae738fb-abd5-4236-87ef-34126581d187">
     <Deploy />
