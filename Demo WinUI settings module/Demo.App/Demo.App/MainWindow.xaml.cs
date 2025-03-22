@@ -1,3 +1,4 @@
+using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Windows.Storage;
 
@@ -17,7 +18,19 @@ public sealed partial class MainWindow : Window
     {
         InitializeComponent();
         SetWindowPosition();
+        MaximizeWindow();
         Closed += (_, __) => SaveWindowPosition();
+    }
+
+    /// <summary>
+    /// Maximizes the window.
+    /// </summary>
+    private void MaximizeWindow()
+    {
+        if (AppWindow.Presenter is OverlappedPresenter presenter)
+        {
+            presenter.Maximize();
+        }
     }
 
     /// <summary>
