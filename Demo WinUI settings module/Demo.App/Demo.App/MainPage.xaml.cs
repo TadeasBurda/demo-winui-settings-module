@@ -8,9 +8,15 @@ namespace Demo.App;
 /// </summary>
 public sealed partial class MainPage : Page
 {
+    /// <summary>
+    /// Gets the ViewModel for the MainPage.
+    /// </summary>
     internal MainViewModel ViewModel { get; } =
         App.Current.Services.GetRequiredService<MainViewModel>();
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="MainPage"/> class.
+    /// </summary>
     public MainPage()
     {
         InitializeComponent();
