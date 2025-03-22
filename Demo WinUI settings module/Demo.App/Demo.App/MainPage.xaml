@@ -1,15 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <Page
-    x:Class="Demo.App.MainPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Demo.App"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    <Grid>
-
-    </Grid>
+  x:Class="Demo.App.MainPage"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:local="using:Demo.App"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  d:DataContext="{d:DesignInstance Type=local:MainViewModel}"
+  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+  mc:Ignorable="d">
+  <!--
+    NavigationView: Provides a consistent navigation experience.
+    Background: Sets the background color of the NavigationView.
+    IsPaneOpen: Indicates whether the navigation pane is open.
+  -->
+  <NavigationView Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" IsPaneOpen="False">
+    <!--
+      NavigationView.Header: Placeholder for the header content of the NavigationView.
+    -->
+    <NavigationView.Header />
+    <!--
+      Frame: A container for navigating between pages.
+      x:Name: Sets the name of the Frame element.
+    -->
+    <Frame x:Name="_contentFrame" />
+  </NavigationView>
 </Page>
