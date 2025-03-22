@@ -28,9 +28,9 @@ public sealed partial class MainPage : Page
     /// <summary>
     /// Handles the Loaded event of the page.
     /// </summary>
-    /// <param name="_">The sender of the event.</param>
-    /// <param name="__">The event arguments.</param>
-    private void OnPageLoaded(object _, RoutedEventArgs __)
+    /// <param name="sender">The sender of the event.</param>
+    /// <param name="args">The event arguments.</param>
+    private void OnPageLoaded(object sender, RoutedEventArgs args)
     {
         ViewModel.IsActive = true;
         ViewModel.ContentFrame = _contentFrame;

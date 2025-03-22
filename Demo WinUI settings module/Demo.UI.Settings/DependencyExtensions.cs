@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Demo.UI.Settings.ViewModels.Pages;
+using Demo.UI.Settings.ViewModels.UserControls;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Demo.UI.Settings;
 
