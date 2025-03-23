@@ -1,8 +1,8 @@
-﻿using System.Diagnostics;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging; // added manually - fix Cancel method
 using Demo.UI.Navigation.Models;
+using Demo.UI.Settings.Services;
 using Demo.UI.Settings.Views.Pages;
 
 namespace Demo.UI.Settings.ViewModels.Pages;
@@ -17,7 +17,8 @@ internal partial class DatabaseSettingsViewModel : ObservableRecipient
     /// </summary>
     [ObservableProperty]
     [NotifyCanExecuteChangedFor(nameof(SaveConnectionStringCommand))]
-    internal partial string ConnectionString { get; set; }
+    internal partial string ConnectionString { get; set; } =
+        SecureDataManager.GetConnectionString() ?? string.Empty;
 
     /// <summary>
     /// Gets a value indicating whether the connection string can be saved.
@@ -30,8 +31,9 @@ internal partial class DatabaseSettingsViewModel : ObservableRecipient
     [RelayCommand(CanExecute = nameof(CanSaveConnectionString))]
     internal void SaveConnectionString()
     {
-        // Save the connection string to the settings.
-        Debug.WriteLine($"Saving connection string: {ConnectionString}");
+        SecureDataManager.SaveConnectionString(ConnectionString);
+
+        Messenger.Send(new NavigateToPageMessage(typeof(SettingsPage)));
     }
 
     /// <summary>
@@ -40,8 +42,7 @@ internal partial class DatabaseSettingsViewModel : ObservableRecipient
     [RelayCommand]
     internal void Cancel()
     {
-        // Clear data
-        ConnectionString = string.Empty;
+        ConnectionString = SecureDataManager.GetConnectionString() ?? string.Empty;
 
         Messenger.Send(new NavigateToPageMessage(typeof(SettingsPage)));
     }
