@@ -11,32 +11,12 @@
   d:DataContext="{d:DesignInstance Type=viewmodels:SettingsViewModel}"
   Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
   mc:Ignorable="d">
-  <!--
-    Grid: Defines a flexible grid area that consists of columns and rows.
-    Margin: Sets the margin around the Grid.
-  -->
   <Grid Margin="36,40,15,0">
-    <!--
-      StackPanel: Arranges child elements into a single line that can be oriented horizontally or vertically.
-      Grid.Row: Sets the row in which the StackPanel is placed.
-    -->
     <StackPanel Grid.Row="1">
-      <!--
-        CardGroup: Represents a group of settings cards.
-        Title: Sets the title of the CardGroup.
-      -->
+      <!--  Database card group  -->
       <usercontrols:CardGroup Title="Database">
-        <!--
-          CardGroup.Children: Defines the child elements of the CardGroup.
-        -->
         <usercontrols:CardGroup.Children>
-          <!--
-            SettingsCard: Represents a settings card.
-            Title: Sets the title of the SettingsCard.
-            Command: Binds the command to the ViewModel's NavigateToDatabaseSettingsPageCommand.
-            Description: Sets the description of the SettingsCard.
-            Glyph: Sets the glyph of the SettingsCard.
-          -->
+          <!--  Database settings card  -->
           <usercontrols:SettingsCard
             Title="Local database"
             Command="{x:Bind ViewModel.NavigateToDatabaseSettingsPageCommand}"
