@@ -16,5 +16,9 @@ This project is a demonstration of a WinUI application that showcases the implem
 - Explore the breadcrumbs navigation to understand hierarchical navigation.
 - Switch languages to see the localization in action.
 
-### License
-This project is licensed under the MIT License.
+### SLNX Support
+This project uses SLNX for solution management. If you do not have SLNX activated, you can still open and work with the project by following these steps:
+1. Install the .NET SDK 8.0 or later.
+2. Use the .NET CLI to open the solution: `dotnet sln add <path-to-solution-file>`
+
+1. More info: https://devblogs.microsoft.com/dotnet/introducing-slnx-support-dotnet-cli/
