@@ -9,4 +9,29 @@
   xmlns:viewmodels="using:Demo.UI.Settings.ViewModels.Pages"
   d:DataContext="{d:DesignInstance Type=viewmodels:DatabaseSettingsViewModel}"
   Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-  mc:Ignorable="d" />
+  mc:Ignorable="d">
+  <StackPanel Margin="36,0,0,0">
+    <!--  PasswordBox for entering the connection string  -->
+    <PasswordBox
+      Width="400"
+      Margin="0,24,0,0"
+      HorizontalAlignment="Left"
+      Header="Connection string"
+      Password="{x:Bind ViewModel.ConnectionString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+      PasswordChar="#"
+      PlaceholderText="Enter your connection string" />
+    <StackPanel Orientation="Horizontal">
+      <!--  Button to save the connection string  -->
+      <Button
+        Margin="0,24"
+        Command="{x:Bind ViewModel.SaveConnectionStringCommand}"
+        Content="Save"
+        Style="{StaticResource AccentButtonStyle}" />
+      <!--  Button to cancel the operation  -->
+      <Button
+        Margin="24"
+        Command="{x:Bind ViewModel.CancelCommand}"
+        Content="Cancel" />
+    </StackPanel>
+  </StackPanel>
+</Page>

@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using CommunityToolkit.Mvvm.Messaging;
+using CommunityToolkit.Mvvm.Messaging; // added manually - fix NavigateToDatabaseSettingsPage method
 using Demo.UI.Navigation.Models;
 using Demo.UI.Settings.Views.Pages;
 
