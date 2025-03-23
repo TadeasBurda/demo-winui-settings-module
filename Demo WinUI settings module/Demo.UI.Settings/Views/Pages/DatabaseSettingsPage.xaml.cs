@@ -1,6 +1,7 @@
 using Demo.UI.Navigation.Models;
 using Demo.UI.Settings.ViewModels.Pages;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.Windows.ApplicationModel.Resources;
 using System;
 
 namespace Demo.UI.Settings.Views.Pages;
@@ -19,7 +20,16 @@ public sealed partial class DatabaseSettingsPage : Page, IBreadcrumbPage
     /// <summary>
     /// Gets the title of the breadcrumb page.
     /// </summary>
-    public string Title => "Local database";
+    public string Title
+    {
+        get
+        {
+            var resourceManager = new ResourceManager();
+            return resourceManager
+                .MainResourceMap.GetValue("Demo.UI.Settings/Resources/LocalDatabase/Title")
+                .ValueAsString;
+        }
+    }
 
     /// <summary>
     /// Gets the type of the parent page, if any.

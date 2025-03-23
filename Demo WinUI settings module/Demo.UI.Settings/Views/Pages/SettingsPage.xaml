@@ -14,13 +14,12 @@
   <Grid Margin="36,40,15,0">
     <StackPanel Grid.Row="1">
       <!--  Database card group  -->
-      <usercontrols:CardGroup Title="Database">
+      <usercontrols:CardGroup x:Uid="/Demo.UI.Settings/Resources/Database">
         <usercontrols:CardGroup.Children>
           <!--  Database settings card  -->
           <usercontrols:SettingsCard
-            Title="Local database"
+            x:Uid="/Demo.UI.Settings/Resources/LocalDatabase"
             Command="{x:Bind ViewModel.NavigateToDatabaseSettingsPageCommand}"
-            Description="Connection string, user name, password etc."
             Glyph="&#xE753;" />
         </usercontrols:CardGroup.Children>
       </usercontrols:CardGroup>

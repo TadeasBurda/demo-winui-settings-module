@@ -2,6 +2,7 @@ using System;
 using Demo.UI.Navigation.Models;
 using Demo.UI.Settings.ViewModels.Pages;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.Windows.ApplicationModel.Resources;
 
 namespace Demo.UI.Settings.Views.Pages;
 
@@ -19,7 +20,16 @@ public sealed partial class SettingsPage : Page, IBreadcrumbPage
     /// <summary>
     /// Gets the title of the breadcrumb page.
     /// </summary>
-    public string Title => "Settings";
+    public string Title
+    {
+        get
+        {
+            var resourceManager = new ResourceManager();
+            return resourceManager
+                .MainResourceMap.GetValue("Demo.UI.Settings/Resources/Settings/Title")
+                .ValueAsString;
+        }
+    }
 
     /// <summary>
     /// Gets the type of the parent page, if any.

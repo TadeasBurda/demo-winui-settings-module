@@ -13,25 +13,24 @@
   <StackPanel Margin="36,0,0,0">
     <!--  PasswordBox for entering the connection string  -->
     <PasswordBox
+      x:Uid="/Demo.UI.Settings/Resources/ConnectionString"
       Width="400"
       Margin="0,24,0,0"
       HorizontalAlignment="Left"
-      Header="Connection string"
       Password="{x:Bind ViewModel.ConnectionString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-      PasswordChar="#"
-      PlaceholderText="Enter your connection string" />
+      PasswordChar="#" />
     <StackPanel Orientation="Horizontal">
       <!--  Button to save the connection string  -->
       <Button
+        x:Uid="/Demo.UI.Settings/Resources/Save"
         Margin="0,24"
         Command="{x:Bind ViewModel.SaveConnectionStringCommand}"
-        Content="Save"
         Style="{StaticResource AccentButtonStyle}" />
       <!--  Button to cancel the operation  -->
       <Button
+        x:Uid="/Demo.UI.Settings/Resources/Cancel"
         Margin="24"
-        Command="{x:Bind ViewModel.CancelCommand}"
-        Content="Cancel" />
+        Command="{x:Bind ViewModel.CancelCommand}" />
     </StackPanel>
   </StackPanel>
 </Page>
