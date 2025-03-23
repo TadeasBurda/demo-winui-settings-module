@@ -9,22 +9,8 @@
   xmlns:viewmodels="using:Demo.UI.Navigation.ViewModels.UserControls"
   d:DataContext="{d:DesignInstance Type=viewmodels:BreadcrumbItemViewModel}"
   mc:Ignorable="d">
-  <!--
-    StackPanel: Arranges child elements into a single line that can be oriented horizontally or vertically.
-    Orientation: Sets the orientation of the StackPanel to horizontal.
-  -->
   <StackPanel Orientation="Horizontal">
-    <!--
-      Button: Represents a button control.
-      Padding: Sets the padding inside the button.
-      Background: Sets the background color of the button.
-      BorderThickness: Sets the thickness of the button border.
-      Command: Binds the button click command to the ViewModel's BreadcrumbItemClickCommand.
-      Content: Binds the button content to the Title property.
-      FontSize: Sets the font size of the button content.
-      FontWeight: Sets the font weight of the button content.
-      Foreground: Sets the foreground color of the button content.
-    -->
+    <!--  Button represents title of the breadcrumb item. After clicking on it, user will navigate to the corresponding page.  -->
     <Button
       Padding="0,0,0,0"
       Background="Transparent"
@@ -34,12 +20,7 @@
       FontSize="28"
       FontWeight="SemiBold"
       Foreground="{StaticResource TextFillColorTertiaryBrush}" />
-    <!--
-      FontIcon: Represents an icon that uses a glyph from the specified font.
-      Margin: Sets the margin around the FontIcon.
-      Glyph: Sets the glyph to be displayed.
-      Style: Sets the style of the FontIcon.
-    -->
+    <!--  FontIcon represents the chevron icon.  -->
     <FontIcon
       Margin="16,0,16,0"
       Glyph="&#xE76C;"

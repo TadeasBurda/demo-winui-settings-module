@@ -9,12 +9,7 @@
   xmlns:viewmodels="using:Demo.UI.Navigation.ViewModels.UserControls"
   d:DataContext="{d:DesignInstance Type=viewmodels:BreadcrumbHeaderViewModel}"
   mc:Ignorable="d">
-  <!--
-    StackPanel: Arranges child elements into a single line that can be oriented horizontally or vertically.
-    x:Name: Sets the name of the StackPanel element.
-    Margin: Sets the margin around the StackPanel.
-    Orientation: Sets the orientation of the StackPanel to horizontal.
-  -->
+  <!--  StackPanel represents the container for the breadcrumb items.  -->
   <StackPanel
     x:Name="_stackPanel"
     Margin="0,0,0,36"
